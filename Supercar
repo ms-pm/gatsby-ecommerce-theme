@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supercar Co-Ownership</title>
+    <style>
+        /* Styles omitted for brevity, you can copy the styles from the previous code */
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Supercar Co-Ownership</h1>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#inventory">Inventory</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla fringilla nisl at ante condimentum hendrerit.</p>
+    </section>
+
+    <section id="inventory">
+        <h2>Inventory</h2>
+        <p>Select a time slot to book:</p>
+        <div id="calendar">
+            <!-- Time slots will be dynamically added here -->
+        </div>
+    </section>
+
+    <section id="pricing">
+        <h2>Pricing</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla fringilla nisl at ante condimentum hendrerit.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla fringilla nisl at ante condimentum hendrerit.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Supercar Co-Ownership</p>
+    </footer>
+
+    <script>
+        // Mock data for available time slots (replace with actual data from your backend)
+        const availableTimeSlots = [
+            { id: 1, start: '2024-02-10T09:00:00', end: '2024-02-10T12:00:00' },
+            { id: 2, start: '2024-02-10T13:00:00', end: '2024-02-10T16:00:00' },
+            // Add more time slots as needed
+        ];
+
+        // Function to render the calendar with available time slots
+        function renderCalendar() {
+            const calendar = document.getElementById('calendar');
+            availableTimeSlots.forEach(slot => {
+                const button = document.createElement('button');
+                button.textContent = `${slot.start} - ${slot.end}`;
+                button.addEventListener('click', () => bookTimeSlot(slot));
+                calendar.appendChild(button);
+            });
+        }
+
+        // Function to handle booking a time slot
+        function bookTimeSlot(slot) {
+            // Here you would make an AJAX request to the server to book the time slot
+            // For simplicity, we'll just show an alert with the booked slot details
+            alert(`Booked time slot: ${slot.start} - ${slot.end}`);
+        }
+
+        // Call the renderCalendar function when the page loads
+        window.onload = renderCalendar;
+    </script>
+</body>
+</html>
